@@ -3,10 +3,10 @@ import 'package:weather_app/data/model/weather.dart';
 
 part 'weather_data.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(nullable: false)
 class WeatherData {
-  @JsonKey(name: 'rh')
-  double relativeHumidityPercentage;
+  @JsonKey(name: 'rh', nullable: false)
+  double relativeHumidityPercentage = 0.0;
   @JsonKey(name: 'pod')
   String dayOrNight;
   @JsonKey(name: 'lon')
@@ -21,30 +21,30 @@ class WeatherData {
   String lastObservationTime;
   @JsonKey(name: 'country_code')
   String countryCode;
-  @JsonKey(name: 'clouds')
-  double cloudsCoveragePercentage;
+  @JsonKey(name: 'clouds', nullable: false)
+  double cloudsCoveragePercentage = 0.0;
   @JsonKey(name: 'ts')
   double lastObservationTimeUnixTimeStamp;
   @JsonKey(name: 'solar_rad')
   double solarRadiation;
   @JsonKey(name: 'state_code')
   String stateCode;
-  @JsonKey(name: 'city_name')
-  String cityName;
-  @JsonKey(name: 'wind_spd')
-  double windSpeedInMeterPerSecond;
+  @JsonKey(name: 'city_name', nullable: false)
+  String cityName = "-";
+  @JsonKey(name: 'wind_spd', nullable: false)
+  double windSpeedInMeterPerSecond = 0.0;
   @JsonKey(name: 'wind_cdir_full')
   String verbalWindDirection;
   @JsonKey(name: 'wind_cdir')
   String abbreviatedWindDirection;
-  @JsonKey(name: 'slp')
-  double seaLevelPressureInMilliBars;
+  @JsonKey(name: 'slp', nullable: false)
+  double seaLevelPressureInMilliBars = 0.0;
   @JsonKey(name: 'vis')
   double visibilityInKM;
   @JsonKey(name: 'h_angle')
   double solarHourAngleInDegrees;
-  @JsonKey(name: 'sunset')
-  String sunset;
+  @JsonKey(name: 'sunset', nullable: false)
+  String sunset = "-";
   @JsonKey(name: 'dni')
   double directNormalSolarIrradiance;
   @JsonKey(name: 'dewpt')
@@ -57,8 +57,8 @@ class WeatherData {
   double liquidEquivalentPrecipitationRateInMilliMetersPerHour;
   @JsonKey(name: 'wind_dir')
   double windDir;
-  @JsonKey(name: 'sunrise')
-  String sunrise;
+  @JsonKey(name: 'sunrise', nullable: false)
+  String sunrise = "-";
   @JsonKey(name: 'ghi')
   double globalHorizontalSolarIrradiance;
 
@@ -73,8 +73,8 @@ class WeatherData {
   Weather weather;
   @JsonKey(name: 'datetime')
   String datetime;
-  @JsonKey(name: 'temp')
-  double temp;
+  @JsonKey(name: 'temp', nullable: false)
+  double temp = 0.0;
   @JsonKey(name: 'station')
   String station;
   @JsonKey(name: 'elev_angle')
@@ -82,8 +82,9 @@ class WeatherData {
   @JsonKey(name: 'app_temp')
   double appTemp;
 
-  WeatherData(
-      {this.relativeHumidityPercentage,
+
+  WeatherData({
+      this.relativeHumidityPercentage,
       this.dayOrNight,
       this.longitude,
       this.pressureInMilliBars,
