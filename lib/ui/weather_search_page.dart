@@ -68,12 +68,6 @@ class _WeatherSearchPageState extends State<WeatherSearchPage> {
     );
   }
 
-  Widget buildInitialInput() {
-    return Center(
-      child: CityInputField(),
-    );
-  }
-
   Widget buildLoading() {
     return Center(
       child: CircularProgressIndicator(),
