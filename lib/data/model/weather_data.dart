@@ -3,48 +3,46 @@ import 'package:weather_app/data/model/weather.dart';
 
 part 'weather_data.g.dart';
 
-@JsonSerializable(nullable: false)
+@JsonSerializable()
 class WeatherData {
-  @JsonKey(name: 'rh', nullable: false)
-  double relativeHumidityPercentage = 0.0;
+  @JsonKey(name: 'rh')
+  double relativeHumidityPercentage;
   @JsonKey(name: 'pod')
   String dayOrNight;
   @JsonKey(name: 'lon')
   double longitude;
-
   @JsonKey(name: 'pres')
   double pressureInMilliBars;
-
   @JsonKey(name: 'timezone')
   String timezone;
   @JsonKey(name: 'ob_time')
   String lastObservationTime;
   @JsonKey(name: 'country_code')
   String countryCode;
-  @JsonKey(name: 'clouds', nullable: false)
-  double cloudsCoveragePercentage = 0.0;
+  @JsonKey(name: 'clouds')
+  double cloudsCoveragePercentage;
   @JsonKey(name: 'ts')
   double lastObservationTimeUnixTimeStamp;
   @JsonKey(name: 'solar_rad')
   double solarRadiation;
   @JsonKey(name: 'state_code')
   String stateCode;
-  @JsonKey(name: 'city_name', nullable: false)
-  String cityName = "-";
-  @JsonKey(name: 'wind_spd', nullable: false)
-  double windSpeedInMeterPerSecond = 0.0;
+  @JsonKey(name: 'city_name')
+  String cityName;
+  @JsonKey(name: 'wind_spd')
+  double windSpeedInMeterPerSecond;
   @JsonKey(name: 'wind_cdir_full')
   String verbalWindDirection;
   @JsonKey(name: 'wind_cdir')
   String abbreviatedWindDirection;
-  @JsonKey(name: 'slp', nullable: false)
-  double seaLevelPressureInMilliBars = 0.0;
+  @JsonKey(name: 'slp')
+  double seaLevelPressureInMilliBars;
   @JsonKey(name: 'vis')
   double visibilityInKM;
   @JsonKey(name: 'h_angle')
   double solarHourAngleInDegrees;
-  @JsonKey(name: 'sunset', nullable: false)
-  String sunset = "-";
+  @JsonKey(name: 'sunset')
+  String sunset;
   @JsonKey(name: 'dni')
   double directNormalSolarIrradiance;
   @JsonKey(name: 'dewpt')
@@ -57,24 +55,22 @@ class WeatherData {
   double liquidEquivalentPrecipitationRateInMilliMetersPerHour;
   @JsonKey(name: 'wind_dir')
   double windDir;
-  @JsonKey(name: 'sunrise', nullable: false)
-  String sunrise = "-";
+  @JsonKey(name: 'sunrise')
+  String sunrise;
   @JsonKey(name: 'ghi')
   double globalHorizontalSolarIrradiance;
-
   @JsonKey(name: 'dhi')
   double diffuseHorizontalSolarIrradiance;
   @JsonKey(name: 'aqi')
   double airQualityIndex;
   @JsonKey(name: 'lat')
   double latitude;
-
   @JsonKey(name: 'weather')
   Weather weather;
   @JsonKey(name: 'datetime')
   String datetime;
-  @JsonKey(name: 'temp', nullable: false)
-  double temp = 0.0;
+  @JsonKey(name: 'temp')
+  double temp;
   @JsonKey(name: 'station')
   String station;
   @JsonKey(name: 'elev_angle')

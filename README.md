@@ -1,16 +1,12 @@
 # weather_app
 
-A new Flutter application.
+A simple flutter weather forecast application based on Weatherbit.io APIs.
 
-## Getting Started
+<p align="center">
+<img src="screenshot.png"/>
+</p>
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## plugins used
+- [flutter_bloc](https://pub.dev/packages/flutter_bloc) - A Flutter package that helps implement the BLoC pattern.
+- [Chopper](https://pub.dev/packages/chopper) - Chopper is an http client generator using source_gen and inspired by Retrofit.
+- [flutter_screenutil](https://pub.dev/packages/flutter_screenutil) - A flutter plugin for adapting screen and font size.Let your UI display a reasonable layout on different screen sizes.

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WeatherContent extends StatelessWidget {
   WeatherContent(
@@ -27,7 +28,7 @@ class WeatherContent extends StatelessWidget {
       title: Text(
         phenomena,
         style: TextStyle(
-          fontSize: 16.0,
+          fontSize: 60.0.sp,
           fontWeight: FontWeight.w500,
           color: Colors.white,
         ),
@@ -35,7 +36,7 @@ class WeatherContent extends StatelessWidget {
       subtitle: Text(
         phenomenaResult,
         style: TextStyle(
-          fontSize: 13.0,
+          fontSize: 45.0.sp,
           fontWeight: FontWeight.w300,
           color: Colors.white,
         ),

@@ -2,10 +2,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubit/weather_cubit.dart';
-import 'package:weather_app/data/model/weather_data.dart';
 import 'package:weather_app/data/model/weather_response.dart';
 import 'component/city_input_field.dart';
 import 'component/reusable_card.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WeatherSearchPage extends StatefulWidget {
   @override
@@ -33,34 +33,14 @@ class _WeatherSearchPageState extends State<WeatherSearchPage> {
           },
           builder: (context, state) {
             if (state is WeatherInitial) {
-              return buildColumnWithData(WeatherResponse(data: [
-                WeatherData(
-                    relativeHumidityPercentage: 0.0,
-                    cloudsCoveragePercentage: 0.0,
-                    cityName: "-",
-                    windSpeedInMeterPerSecond: 0.0,
-                    seaLevelPressureInMilliBars: 0.0,
-                    sunset: "-",
-                    sunrise: "-",
-                    temp: 0.0)
-              ]));
+              return buildColumnWithData(WeatherResponse());
             } else if (state is WeatherLoading) {
               return buildLoading();
             } else if (state is WeatherLoaded) {
               return buildColumnWithData(state.weather);
             } else {
               // (state is WeatherError)
-              return buildColumnWithData(WeatherResponse(data: [
-                WeatherData(
-                    relativeHumidityPercentage: 0.0,
-                    cloudsCoveragePercentage: 0.0,
-                    cityName: "-",
-                    windSpeedInMeterPerSecond: 0.0,
-                    seaLevelPressureInMilliBars: 0.0,
-                    sunset: "-",
-                    sunrise: "-",
-                    temp: 0.0)
-              ]));
+              return buildColumnWithData(WeatherResponse());
             }
           },
         ),
@@ -83,30 +63,26 @@ class _WeatherSearchPageState extends State<WeatherSearchPage> {
           ReusableCard(
             firstPhenomenaImage: "images/humidity.png",
             firstPhenomena: "Humidity",
-            firstPhenomenaResult:
-                "${weather.data[0].relativeHumidityPercentage}%",
+            firstPhenomenaResult: "${weather.data == null ? "--" : weather.data[0].relativeHumidityPercentage}%",
             secondPhenomenaImage: "images/cloud.png",
             secondPhenomena: "Clouds",
-            secondPhenomenaResult:
-                "${weather.data[0].cloudsCoveragePercentage}%",
+            secondPhenomenaResult: "${weather.data == null ? "--" : weather.data[0].cloudsCoveragePercentage}%",
           ),
           ReusableCard(
             firstPhenomenaImage: "images/wind.png",
             firstPhenomena: "Wind",
-            firstPhenomenaResult:
-                "${weather.data[0].windSpeedInMeterPerSecond} m/s",
+            firstPhenomenaResult: "${weather.data == null ? "--" : weather.data[0].windSpeedInMeterPerSecond} m/s",
             secondPhenomenaImage: "images/pressure.png",
             secondPhenomena: "pressure",
-            secondPhenomenaResult:
-                "${weather.data[0].seaLevelPressureInMilliBars} mb",
+            secondPhenomenaResult: "${weather.data == null ? "--" : weather.data[0].seaLevelPressureInMilliBars} mb",
           ),
           ReusableCard(
             firstPhenomenaImage: "images/sunset.png",
             firstPhenomena: "sunset",
-            firstPhenomenaResult: "${weather.data[0].sunset} AM",
+            firstPhenomenaResult: "${weather.data == null ? "--" : weather.data[0].sunset} AM",
             secondPhenomenaImage: "images/sunrise.png",
             secondPhenomena: "sunrise",
-            secondPhenomenaResult: "${weather.data[0].sunrise} PM",
+            secondPhenomenaResult: "${weather.data == null ? "--" : weather.data[0].sunrise} PM",
           )
         ],
       ),
@@ -117,26 +93,16 @@ class _WeatherSearchPageState extends State<WeatherSearchPage> {
           CityInputField(),
           ListTile(
             title: Text(
-              weather.data[0].cityName,
+              weather.data == null ? "--" : weather.data[0].cityName,
               textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 50,
-                  color: Colors.white),
-            ),
+              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 150.sp, color: Colors.white)),
             subtitle: Text(
-              "${weather.data[0].temp.toStringAsFixed(1)} °c",
+              "${weather.data == null ? "--" : weather.data[0].temp.toStringAsFixed(1)} °c",
               textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white),
-            ),
+              style: TextStyle(fontSize: 80.sp, fontWeight: FontWeight.w400, color: Colors.white)),
           ),
         ],
       ),
     );
   }
 }
-
-
