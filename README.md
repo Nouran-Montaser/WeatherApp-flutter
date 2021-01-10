@@ -1,4 +1,4 @@
-# weather_app
+# Weatherapp
 
 A simple flutter weather forecast application based on Weatherbit.io APIs.
 
